@@ -1,0 +1,22 @@
+@import url(./assets/fonts/yekan/yekan.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body.kcBodyClass {
+    @apply bg-[url(./assets/img/background.jpg)] bg-no-repeat bg-center bg-fixed;
+    @apply font-yekan;
+}
+
+.kcHeaderWrapperClass {
+    @apply text-3xl font-bold underline;
+}
+@layer utilities {
+    .bg-login {
+        background-image: url('assets/img/background.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}

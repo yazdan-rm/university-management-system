@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="299ddd34-7ba8-4aed-a314-403b05adaeaa" name="Changes" comment="create login page for ums project">
+      <change afterPath="$PROJECT_DIR$/src/login/assets/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/assets/img/logo-medium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/pages/Login.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;yazdan-rm&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/keycloakify/keycloakify-starter.git&quot;,
+    &quot;accountId&quot;: &quot;3cd5cbc4-7295-46f3-8fdf-439497c1aacf&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2xJ9tDtGtDE9YuGDbny3liKsg0W" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "tailwind",
+    "last_opened_file_path": "C:/Users/Asus/Desktop/UMS/keycloakify-starter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "npm.build.executor": "Run",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Asus\\Desktop\\spring boot courses\\Spring-Boot-Projects\\keycloakify-starter\\node_modules\\prettier",
+    "ts.external.directory.path": "C:\\Users\\Asus\\Desktop\\UMS\\keycloakify-starter\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src\login\assets\img" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\public" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src\login\assets\fonts" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src\login\assets\img" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src\login\assets" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter" />
+      <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="299ddd34-7ba8-4aed-a314-403b05adaeaa" name="Changes" comment="" />
+      <created>1747645522364</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747645522364</updated>
+      <workItem from="1747645524057" duration="3217000" />
+      <workItem from="1747649942697" duration="846000" />
+      <workItem from="1747655921283" duration="22612000" />
+      <workItem from="1747694506475" duration="51000" />
+      <workItem from="1747694615592" duration="2688000" />
+      <workItem from="1747748288216" duration="446000" />
+      <workItem from="1747774752660" duration="654000" />
+      <workItem from="1747783460650" duration="10000" />
+      <workItem from="1747997499913" duration="1322000" />
+      <workItem from="1749762268100" duration="2058000" />
+      <workItem from="1749772426792" duration="30000" />
+      <workItem from="1751537846049" duration="16000" />
+      <workItem from="1751538804206" duration="28000" />
+    </task>
+    <task id="LOCAL-00001" summary="create login page for ums project">
+      <option name="closed" value="true" />
+      <created>1747697657361</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747697657361</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create login page for ums project">
+      <option name="closed" value="true" />
+      <created>1747998837000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747998837000</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create login page for ums project" />
+    <option name="LAST_COMMIT_MESSAGE" value="create login page for ums project" />
+  </component>
+</project>
