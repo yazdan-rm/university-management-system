@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="299ddd34-7ba8-4aed-a314-403b05adaeaa" name="Changes" comment="create login page for ums project">
-      <change afterPath="$PROJECT_DIR$/src/login/assets/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login/assets/img/logo-medium.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMS_Backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMS_Frontend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Frontend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMS_Frontend/src/app/main/university/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Frontend/src/app/main/university/dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMS_Frontend/src/app/store/apiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Frontend/src/app/store/apiService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,7 @@
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -30,12 +29,12 @@
     &quot;assignee&quot;: &quot;yazdan-rm&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/keycloakify/keycloakify-starter.git&quot;,
-    &quot;accountId&quot;: &quot;3cd5cbc4-7295-46f3-8fdf-439497c1aacf&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/yazdan-rm/university-management-system.git",
+    "accountId": "3cd5cbc4-7295-46f3-8fdf-439497c1aacf"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -48,26 +47,26 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "tailwind",
-    "last_opened_file_path": "C:/Users/Asus/Desktop/UMS/keycloakify-starter",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.build.executor": "Run",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Asus\\Desktop\\spring boot courses\\Spring-Boot-Projects\\keycloakify-starter\\node_modules\\prettier",
-    "ts.external.directory.path": "C:\\Users\\Asus\\Desktop\\UMS\\keycloakify-starter\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Desktop/UMS/keycloakify-starter&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Asus\\Desktop\\UMS\\keycloakify-starter\\node_modules\\prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Asus\\Desktop\\UMS\\keycloakify-starter\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Asus\Desktop\spring boot courses\Spring-Boot-Projects\keycloakify-starter\src\login\assets\img" />
@@ -138,6 +137,8 @@
       <workItem from="1749772426792" duration="30000" />
       <workItem from="1751537846049" duration="16000" />
       <workItem from="1751538804206" duration="28000" />
+      <workItem from="1751734692063" duration="5058000" />
+      <workItem from="1751740556490" duration="946000" />
     </task>
     <task id="LOCAL-00001" summary="create login page for ums project">
       <option name="closed" value="true" />

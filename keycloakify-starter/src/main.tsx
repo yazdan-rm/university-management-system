@@ -1,13 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import { KcPage } from "./kc.gen";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-const theme = createTheme({
-    typography: {
-        fontFamily: "yekan",
-    }
-});
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./login/pages/theme.ts";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>

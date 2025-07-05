@@ -32,7 +32,7 @@ function Dashboard() {
 
   return (
     <motion.div
-      className="flex flex-wrap justify-start items-start gap-40 p-6 m-24"
+      className="flex flex-wrap justify-center md:justify-start md:items-start gap-40 p-6 m-24"
       variants={container}
       initial="hidden"
       animate="show"

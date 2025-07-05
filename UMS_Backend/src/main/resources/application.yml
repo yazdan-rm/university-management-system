@@ -12,7 +12,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: https://localhost:8443/realms/UMS/protocol/openid-connect/certs #****
+#          jwk-set-uri: https://localhost:8443/realms/UMS/protocol/openid-connect/certs #****
+          jwk-set-uri: https://192.168.1.110:8443/realms/UMS/protocol/openid-connect/certs #****
 
   jpa:
     hibernate:

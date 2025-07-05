@@ -1,10 +1,13 @@
 import "./index.css";
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 import type { ClassKey } from "keycloakify/login";
 import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
 import Template from "keycloakify/login/Template";
+import { RTL } from "./pages/RTL.tsx";
+import theme from "./pages/theme.ts";
+import { ThemeProvider } from "@mui/material/styles";
 //import { twMerge } from "tailwind-merge";
 
 const UserProfileFormFields = lazy(
@@ -25,9 +28,13 @@ export default function KcPage(props: { kcContext: KcContext }) {
                 switch (kcContext.pageId) {
                     case "login.ftl":
                         return (
+                            <RTL>
+                                <ThemeProvider theme={theme}>
                             <Login
                                 kcContext={kcContext}
                             />
+                                </ThemeProvider>
+                            </RTL>
                         );
                     default:
                         return (

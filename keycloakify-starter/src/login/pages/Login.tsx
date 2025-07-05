@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { PageProps } from "../../types.ts";
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
-import logoBg from '../assets/img/logo.png'
+import logoBg from "../assets/img/logo.png";
 
 export default function Login({ kcContext }: PageProps<"login.ftl">) {
     // const { social, realm, url, usernameHidden, login, auth, registrationDisabled, messagesPerField } = kcContext;
@@ -10,10 +10,10 @@ export default function Login({ kcContext }: PageProps<"login.ftl">) {
     const [password, setPassword] = useState("");
 
     return (
-        <div className="flex h-[100vh] min-w-0 flex-auto flex-col items-center sm:justify-center md:p-32 bg-login">
+        <div className="flex h-[100vh] min-w-0 flex-auto flex-col items-center justify-center md:p-32 bg-login">
             <Paper
                 elevation={4}
-                className="flex min-h-full w-full overflow-hidden rounded-0 sm:min-h-auto sm:w-2xl sm:rounded-2xl md:w-full md:max-w-[77.6rem]"
+                className="flex min-h-auto min-w-216 overflow-hidden rounded-2xl md:max-w-[70.6rem]"
             >
                 <Box
                     className="relative hidden h-full flex-auto items-center justify-center overflow-hidden p-48 md:flex lg:px-[10rem]"
@@ -67,11 +67,16 @@ export default function Login({ kcContext }: PageProps<"login.ftl">) {
                     </div>
                 </Box>
 
-                <div className="w-full px-16 py-32 ltr:border-l-1 rtl:border-r-1 sm:w-auto sm:p-45 md:p-48">
+                <div className="flex items-center justify-center w-full px-16 py-32 ltr:border-l-1 rtl:border-r-1  sm:p-45 md:p-48">
                     <div className="mx-auto w-full max-w-[16rem] sm:mx-0 sm:w-[16rem]" dir={"rtl"}>
-                        <img className="w-[8rem]" src={logoBg} alt="logo" />
+                        <div className="flex justify-center">
+                            <img className="w-[8rem]" src={logoBg} alt="logo" />
+                        </div>
 
-                        <Typography className=" mt-[1.3rem] text-17 font-extrabold leading-tight tracking-tight font-yekan text-gray-800" dir="rtl">
+                        <Typography
+                            className=" mt-[1.3rem] text-17 text-center font-extrabold leading-tight tracking-tight font-yekan text-gray-800"
+                            dir="rtl"
+                        >
                             ورود به حساب کاربری
                         </Typography>
                         <form
@@ -85,15 +90,6 @@ export default function Login({ kcContext }: PageProps<"login.ftl">) {
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "7px"
-                                    },
-                                    "& .MuiInputBase-input": {
-                                        fontFamily: "yekan"
-                                    },
-                                    "& .MuiFormHelperText-root": {
-                                        fontFamily: "yekan"
-                                    },
-                                    "& .MuiInputLabel-root": {
-                                        fontFamily: "yekan"
                                     }
                                 }}
                                 size="medium"
@@ -113,15 +109,6 @@ export default function Login({ kcContext }: PageProps<"login.ftl">) {
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "7px"
-                                    },
-                                    "& .MuiInputBase-input": {
-                                        fontFamily: "yekan"
-                                    },
-                                    "& .MuiFormHelperText-root": {
-                                        fontFamily: "yekan"
-                                    },
-                                    "& .MuiInputLabel-root": {
-                                        fontFamily: "yekan"
                                     }
                                 }}
                                 size="medium"
@@ -142,7 +129,6 @@ export default function Login({ kcContext }: PageProps<"login.ftl">) {
                                 aria-label="Sign in"
                                 disabled={!username || !password}
                                 type="submit"
-
                             >
                                 ورود
                             </Button>
