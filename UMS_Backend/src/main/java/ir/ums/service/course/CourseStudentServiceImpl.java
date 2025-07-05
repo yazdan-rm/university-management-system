@@ -87,7 +87,7 @@ public class CourseStudentServiceImpl implements ICourseStudentService {
 
         validatePrerequisitesCrs(courseId, stdAcceptedCourses);
         validateCorequisitesCrs(courseId, stdAcceptedCourses, stdCurrentTermCourses);
-        validateEquivalentsCrs(courseId, stdAcceptedCourses);
+        validateEquivalentsCrs(courseId, stdAcceptedCourses, stdCurrentTermCourses);
     }
 
     private List<Course> getStudentCoursesByScoreResult(UUID studentId, Boolean scoreResult) {
@@ -125,12 +125,12 @@ public class CourseStudentServiceImpl implements ICourseStudentService {
         }
     }
 
-    private void validateEquivalentsCrs(UUID courseId, List<Course> stdAcceptedCourses) {
+    private void validateEquivalentsCrs(UUID courseId, List<Course> stdAcceptedCourses, List<Course> stdCurrentTermCourses) {
         List<String> alreadyAccepted = coursePrerequisiteDao
                 .getCoursePrerequisiteByCourseIdAndPreType(courseId, PrerequisiteTypeEnum.EQUIVALENT.getLabel())
                 .stream()
                 .map(CoursePrerequisite::getPrerequisite)
-                .filter(stdAcceptedCourses::contains)
+                .filter(eqv -> stdAcceptedCourses.contains(eqv) || stdCurrentTermCourses.contains(eqv))
                 .map(Course::getCourseName)
                 .toList();
 

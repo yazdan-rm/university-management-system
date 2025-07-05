@@ -64,11 +64,13 @@ function CoursePrerequisiteDialog({ courseId, open, onClose }) {
         <CloseIcon />
       </IconButton>
       <DialogContent dividers>
-        <AgGrid
-          columnDefs={columnDefs}
-          fetchData={trigger}
-          masterId={courseId}
-        />
+        {open && (
+            <AgGrid
+                columnDefs={columnDefs}
+                fetchData={trigger}
+                masterId={courseId}
+            />
+        )}
       </DialogContent>
     </Dialog>
   );
