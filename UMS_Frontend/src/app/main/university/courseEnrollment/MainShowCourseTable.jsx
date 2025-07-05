@@ -2,23 +2,35 @@ import {
   useCreateCourseStudentMutation,
   useGetRowsExclusiveCoursesForStdMutation,
 } from "../UniversityApi.js";
-import { useAppDispatch, useAppSelector } from "app/store/hooks.js";
-import { refreshAgGrid, selectRefreshGridFlag } from "../universitySlice.js";
+import {useAppDispatch, useAppSelector} from "app/store/hooks.js";
+import {refreshAgGrid, selectRefreshGridFlag} from "../universitySlice.js";
 import AgGrid from "app/shared-components/AgGrid.jsx";
-import { showMessage } from "@fuse/core/FuseMessage/fuseMessageSlice.js";
+import {showMessage} from "@fuse/core/FuseMessage/fuseMessageSlice.js";
 import useJwtAuth from "../../../auth/services/jwt/useJwtAuth.jsx";
 import Button from "@mui/material/Button";
 import DoneOutlineRoundedIcon from "@mui/icons-material/DoneOutlineRounded";
 import CoursePrerequisiteDialog from "./CoursePrerequisiteDialog.jsx";
-import { useState } from "react";
+import {useState} from "react";
 
 function MainShowCourseTable() {
   const [trigger] = useGetRowsExclusiveCoursesForStdMutation();
   const [createCourseStudentTrigger] = useCreateCourseStudentMutation();
   const refreshGrid = useAppSelector(selectRefreshGridFlag);
   const dispatch = useAppDispatch();
-  const { user: jwtUser } = useJwtAuth();
-  const [open, setOpen] = useState(false);
+  const {user: jwtUser} = useJwtAuth();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedCourseId, setSelectedCourseId] = useState(null);
+
+  const handleDialogOpen = (courseId) => {
+    setSelectedCourseId(courseId);
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+    setSelectedCourseId(null);
+  };
+
 
   const onSubmit = (data) => {
     const payload = {
@@ -27,17 +39,17 @@ function MainShowCourseTable() {
     };
 
     createCourseStudentTrigger(payload)
-      .unwrap()
-      .then((data) => {
-        dispatch(showMessage({ message: data.message }));
-        dispatch(refreshAgGrid());
-      })
-      .catch((e) => {
-        dispatch(
-          showMessage({ message: e.response.data.message, variant: "error" }),
-        );
-        dispatch(refreshAgGrid());
-      });
+        .unwrap()
+        .then((data) => {
+          dispatch(showMessage({message: data.message}));
+          dispatch(refreshAgGrid());
+        })
+        .catch((e) => {
+          dispatch(
+              showMessage({message: e.response.data.message, variant: "error"}),
+          );
+          dispatch(refreshAgGrid());
+        });
   };
 
   const columnDefs = [
@@ -59,32 +71,22 @@ function MainShowCourseTable() {
       field: "hasPrerequisiteCourse",
       minWidth: 105,
       cellRenderer: (params) => {
-        const handleClose = () => setOpen(false);
         return params.data ? (
-          <>
             <Button
-              size="small"
-              color="primary"
-              variant="contained"
-              type="button"
-              onClick={() => setOpen(true)}
-              disabled={params.value !== 1}
+                size="small"
+                color="primary"
+                variant="contained"
+                type="button"
+                onClick={() => handleDialogOpen(params.data.courseId)}
+                disabled={params.value !== 1}
             >
               {params.value === 1 ? "دارد" : "ندارد"}
             </Button>
-            <CoursePrerequisiteDialog
-              open={open}
-              onClose={handleClose}
-              courseId={params?.data?.courseId}
-            />
-          </>
-        ) : (
-          ""
-        );
+        ) : null;
       },
     },
-    { headerName: "ظرفیت دوره", minWidth: 110, field: "capacity" },
-    { headerName: "ثبت نام شده", minWidth: 110, field: "enrolledCount" },
+    {headerName: "ظرفیت دوره", minWidth: 110, field: "capacity"},
+    {headerName: "ثبت نام شده", minWidth: 110, field: "enrolledCount"},
     {
       headerName: "نام استاد",
       field: "instructorName",
@@ -99,32 +101,39 @@ function MainShowCourseTable() {
       field: "instructorName",
       minWidth: 20,
       cellRenderer: (params) =>
-        params.data ? (
-          <Button
-            size="small"
-            color="primary"
-            variant="contained"
-            type="button"
-            onClick={() => onSubmit(params.data)}
-            endIcon={<DoneOutlineRoundedIcon fontSize="medium" />}
-          >
-            ثبت نام
-          </Button>
-        ) : (
-          ""
-        ),
+          params.data ? (
+              <Button
+                  size="small"
+                  color="primary"
+                  variant="contained"
+                  type="button"
+                  onClick={() => onSubmit(params.data)}
+                  endIcon={<DoneOutlineRoundedIcon fontSize="medium"/>}
+              >
+                ثبت نام
+              </Button>
+          ) : (
+              ""
+          ),
       filter: false,
       sortable: false,
     },
   ];
   return (
-    <AgGrid
-      title={"لیست دروه برای ثبت نام"}
-      containerStyle={{ width: "100%", height: "40vh" }}
-      refreshGrid={refreshGrid}
-      fetchData={trigger}
-      columnDefs={columnDefs}
-    />
+      <>
+        <CoursePrerequisiteDialog
+            open={dialogOpen}
+            onClose={handleDialogClose}
+            courseId={selectedCourseId}
+        />
+        <AgGrid
+            title={"لیست دروه برای ثبت نام"}
+            containerStyle={{width: "100%", height: "40vh"}}
+            refreshGrid={refreshGrid}
+            fetchData={trigger}
+            columnDefs={columnDefs}
+        />
+      </>
   );
 }
 
