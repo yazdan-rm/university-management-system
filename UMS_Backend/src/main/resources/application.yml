@@ -12,7 +12,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: https://localhost:8443/realms/UMS/protocol/openid-connect/certs
+#          jwk-set-uri: https://localhost:8443/realms/UMS/protocol/openid-connect/certs #****
+          jwk-set-uri: https://192.168.1.110:8443/realms/UMS/protocol/openid-connect/certs #****
 
   jpa:
     hibernate:
@@ -39,10 +40,9 @@ logging:
   pattern:
     console: "%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n"
 
-sms:
-  api-key: ${SMS_API_KEY}
 
 server:
+  address: 0.0.0.0
   port: 9999
   ssl:
     enabled: true

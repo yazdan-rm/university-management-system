@@ -154,7 +154,7 @@ public class CourseDaoImpl implements ICourseDao {
                                        MIN(csch.course_exam_date || ' ساعت ' || csch.course_exam_time) AS "examTime"
                                 FROM course_student cs
                                 INNER JOIN course c ON cs.fk_course = c.id
-                                INNER JOIN course_schedule csch ON csch.fk_course = c.id
+                                LEFT JOIN course_schedule csch ON csch.fk_course = c.id
                                 WHERE cs.fk_student = '::studentId'
                                 GROUP BY c.id)
                 SELECT *

@@ -31,7 +31,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 ).cors(corsConfig -> corsConfig.configurationSource(request ->{
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOrigins(Collections.singletonList("https://localhost:3001"));
+                    config.setAllowedOrigins(List.of("https://localhost:3001", "https://192.168.1.110:3001"));
                     config.setAllowedMethods(Collections.singletonList("*"));
                     config.setAllowCredentials(true);
                     config.setAllowedHeaders(List.of("*"));
