@@ -46,7 +46,7 @@ public class OracleSqlQueryBuilder {
     }
 
     private String orderBySql() {
-        Function<SortModel, String> orderByMapper = model -> "\"" + model.getColId() + "\" " + model.getSort();
+        Function<SortModel, String> orderByMapper = model -> model.getColId() + " " + model.getSort();
 
         List<String> orderByCols = sortModel.stream()
                 .map(orderByMapper)
@@ -57,12 +57,13 @@ public class OracleSqlQueryBuilder {
 
     private String limitSql() {
         if(startRow == 0 && endRow == 0) return "";
-        return " OFFSET " + startRow + " ROWS FETCH NEXT " + (endRow - startRow + 1) + " ROWS ONLY";
+//        return " OFFSET " + startRow + " ROWS FETCH NEXT " + (endRow - startRow + 1) + " ROWS ONLY";
+        return " LIMIT " + (endRow - startRow + 1) + " OFFSET " + startRow;
     }
 
     private Stream<String> getFilters() {
         Function<Map.Entry<String, ColumnFilter>, String> applyFilters = entry -> {
-            String columnName = String.format("\"%s\"", entry.getKey());
+            String columnName = String.format("%s", entry.getKey());
             ColumnFilter filter = entry.getValue();
 
             if (filter instanceof SetColumnFilter) {

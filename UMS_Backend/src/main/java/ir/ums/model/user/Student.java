@@ -30,7 +30,7 @@ public class Student extends BaseEntity {
     private String nationalCode;
 
     @JdbcTypeCode(SqlTypes.CHAR)
-    @Column(name = "FK_KEYCLOAK_USER_ID", length = 36, columnDefinition = "varchar2(36)")
+    @Column(name = "FK_KEYCLOAK_USER_ID", length = 36, columnDefinition = "varchar(36)")
     private UUID keycloakUserId;
 
     @Lob

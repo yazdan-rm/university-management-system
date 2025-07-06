@@ -45,10 +45,10 @@ public class CourseStudentDaoImpl implements ICourseStudentDao {
     public EnterpriseGetRowsResponse getRowsCourseStudent(EnterpriseGetRowsRequest request) {
         Student currentStudent = studentService.getCurrentStudentLoggedIn();
         String viewQuery = """
-                WITH course_student_view as (SELECT cs.id          AS "id",
-                                                    cs.create_date AS "createDate",
-                                                    c.course_name  AS "courseName",
-                                                    c.course_units AS "courseUnits"
+                WITH course_student_view as (SELECT cs.id          AS id,
+                                                    cs.create_date AS createDate,
+                                                    c.course_name  AS courseName,
+                                                    c.course_units AS courseUnits
                                              FROM course c
                                                       INNER JOIN course_student cs ON cs.fk_course = c.id
                                              WHERE cs.fk_student = '::studentId')

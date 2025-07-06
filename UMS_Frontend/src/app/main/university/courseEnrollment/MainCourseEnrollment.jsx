@@ -35,6 +35,7 @@ function MainCourseEnrollment() {
           </motion.div>
         </motion.div>
       }
+      scroll="content"
     />
   );
 }

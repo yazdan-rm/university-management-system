@@ -29,7 +29,7 @@ public class BootstrapJpaData implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-//        universityData();
+        universityData();
 //        courseData();
 //        coursePrerequisite();
     }

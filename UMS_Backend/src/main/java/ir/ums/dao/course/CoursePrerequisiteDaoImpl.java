@@ -55,13 +55,13 @@ public class CoursePrerequisiteDaoImpl implements ICoursePrerequisiteDao {
     @Override
     public EnterpriseGetRowsResponse getRowsCoursePrerequisite(EnterpriseGetRowsRequest request) {
         String viewQuery = """
-                WITH course_pre_view AS (SELECT cp.id                AS "id",
-                                                cp.create_date       AS "createDate",
-                                                crs.id               AS "courseId",
-                                                crs.course_name      AS "courseName",
-                                                cpp.id               AS "prerequisiteId",
-                                                cpp.course_name      AS "prerequisiteName",
-                                                cp.prerequisite_type AS "prerequisiteType"
+                WITH course_pre_view AS (SELECT cp.id                AS id,
+                                                cp.create_date       AS createDate,
+                                                crs.id               AS courseId,
+                                                crs.course_name      AS courseName,
+                                                cpp.id               AS prerequisiteId,
+                                                cpp.course_name      AS prerequisiteName,
+                                                cp.prerequisite_type AS prerequisiteType
                                          FROM course_prerequisite cp
                                                   INNER JOIN course crs ON cp.fk_course_id = crs.id
                                                   INNER JOIN course cpp ON cpp.id = cp.fk_prerequisite_id

@@ -3,17 +3,21 @@ spring:
     location: classpath:banner.txt
   application:
     name: UMS
+#  datasource:
+#    url: jdbc:oracle:thin:@//localhost:1521/orclpdb
+#    username: ums
+#    password: ums
+#    driver-class-name: oracle.jdbc.OracleDriver
   datasource:
-    url: jdbc:oracle:thin:@//localhost:1521/orclpdb
+    url: jdbc:mysql://89.32.249.105:3306/ums
     username: ums
     password: ums
-    driver-class-name: oracle.jdbc.OracleDriver
   security:
     oauth2:
       resourceserver:
         jwt:
 #          jwk-set-uri: https://localhost:8443/realms/UMS/protocol/openid-connect/certs #****
-          jwk-set-uri: https://192.168.1.110:8443/realms/UMS/protocol/openid-connect/certs #****
+          jwk-set-uri: https://89.32.249.105:8443/realms/UMS/protocol/openid-connect/certs #****
 
   jpa:
     hibernate:
@@ -46,7 +50,9 @@ server:
   port: 9999
   ssl:
     enabled: true
-    key-store: src/main/resources/keystore.p12
+    key-store: classpath:keystore.p12
     key-store-type: PKCS12
-    key-store-password: university-ms
-    key-alias: ums
+    key-store-password: changeit
+    key-alias: myalias
+
+

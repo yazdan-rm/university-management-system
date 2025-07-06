@@ -57,24 +57,24 @@ public class CourseDaoImpl implements ICourseDao {
     @Override
     public EnterpriseGetRowsResponse getRowsCourses(EnterpriseGetRowsRequest request) {
         String viewQuery = """
-                WITH courses_view AS (SELECT c.id                   AS "id",
-                                        c.create_date               AS "createDate",
-                                        c.course_name               AS "courseName",
-                                        c.semester                  AS "semester",
-                                        c.course_units              AS "courseUnits",
-                                        c.pv_allowed_genders        AS "allowedGenders",
-                                        c.instructor_name           AS "instructorName",
-                                        c.capacity                  AS "capacity",
-                                        c.enrolled_count            AS "enrolledCount",
-                                        c.educational_level         AS "educationalLevel",
-                                        c.location                  AS "location",
-                                        c.has_prerequisite_course   AS "hasPrerequisiteCourse",
-                                        u.college_name              AS "collegeName",
-                                        u.department_name           AS "departmentName",
-                                        u.field_of_study            AS "fieldOfStudy",
-                                        u.college_code              AS "collegeCode",
-                                        u.department_code           AS "departmentCode",
-                                        u.field_of_study_code       AS "fieldOfStudyCode"
+                WITH courses_view AS (SELECT c.id                   AS id,
+                                        c.create_date               AS createDate,
+                                        c.course_name               AS courseName,
+                                        c.semester                  AS semester,
+                                        c.course_units              AS courseUnits,
+                                        c.pv_allowed_genders        AS allowedGenders,
+                                        c.instructor_name           AS instructorName,
+                                        c.capacity                  AS capacity,
+                                        c.enrolled_count            AS enrolledCount,
+                                        c.educational_level         AS educationalLevel,
+                                        c.location                  AS location,
+                                        c.has_prerequisite_course   AS hasPrerequisiteCourse,
+                                        u.college_name              AS collegeName,
+                                        u.department_name           AS departmentName,
+                                        u.field_of_study            AS fieldOfStudy,
+                                        u.college_code              AS collegeCode,
+                                        u.department_code           AS departmentCode,
+                                        u.field_of_study_code       AS fieldOfStudyCode
                                  FROM course c
                                           JOIN
                                       university u
@@ -91,18 +91,18 @@ public class CourseDaoImpl implements ICourseDao {
 
         String sql = """
                 WITH exc_crs_for_std_view AS (
-                SELECT MIN(c.id)                                       AS "courseId",
-                       MIN(c.create_date)                              AS "createDate",
-                       MIN(c.course_name)                              AS "courseName",
-                       MIN(c.course_units)                             AS "courseUnits",
-                       MIN(c.capacity)                                 AS "capacity",
-                       MIN(c.pv_allowed_genders)                       AS "allowedGenders",
-                       MIN(c.instructor_name)                          AS "instructorName",
-                       MIN(c.enrolled_count)                           AS "enrolledCount",
-                       MIN(c.has_prerequisite_course)                  AS "hasPrerequisiteCourse",
-                       LISTAGG(DISTINCT csched.days_of_week || ' ' || csched.course_end_time || '-' || csched.course_start_time, ' / ') AS "scheduleTime",
-                       LISTAGG(DISTINCT 'امتحان ' || csched.course_exam_date || ' ساعت ' || csched.course_exam_time, ' / ')             AS "examTime",
-                       LISTAGG(DISTINCT cp.prerequisite_type || ' - ' || crs.course_name, ' / ')                                        AS "prerequisiteCourse"
+                SELECT MIN(c.id)                                       AS courseId,
+                       MIN(c.create_date)                              AS createDate,
+                       MIN(c.course_name)                              AS courseName,
+                       MIN(c.course_units)                             AS courseUnits,
+                       MIN(c.capacity)                                 AS capacity,
+                       MIN(c.pv_allowed_genders)                       AS allowedGenders,
+                       MIN(c.instructor_name)                          AS instructorName,
+                       MIN(c.enrolled_count)                           AS enrolledCount,
+                       MIN(c.has_prerequisite_course)                  AS hasPrerequisiteCourse,
+                       GROUP_CONCAT(DISTINCT CONCAT(csched.days_of_week, ' ', csched.course_end_time, '-', csched.course_start_time) SEPARATOR ' / ') AS scheduleTime,
+                       GROUP_CONCAT(DISTINCT CONCAT('امتحان ', csched.course_exam_date, ' ساعت ', csched.course_exam_time) SEPARATOR ' / ')             AS examTime,
+                       GROUP_CONCAT(DISTINCT CONCAT(cp.prerequisite_type, ' - ', crs.course_name) SEPARATOR ' / ')                                        AS prerequisiteCourse
                     FROM course c
                              INNER JOIN university u ON u.id = c.fk_university
                              LEFT JOIN course_schedule csched ON c.id = csched.fk_course
@@ -142,23 +142,26 @@ public class CourseDaoImpl implements ICourseDao {
         Student currentStudent = studentService.getCurrentStudentLoggedIn();
         String queryView = """
                 WITH student_enrollment_result_view AS (
-                                SELECT MIN(c.course_name)     AS "courseName",
-                                       MIN(c.course_units)    AS "courseUnits",
-                                       MIN(c.instructor_name) AS "instructorName",
-                                       LISTAGG(CASE WHEN csch.days_of_week = 'شنبه' THEN csch.course_end_time || '-' || csch.course_start_time END, ' / ') AS "saturday",
-                                       LISTAGG(CASE WHEN csch.days_of_week = 'یک‌شنبه' THEN csch.course_end_time || '-' || csch.course_start_time END, ' / ') AS "sunday",
-                                       LISTAGG(CASE WHEN csch.days_of_week = 'دوشنبه' THEN csch.course_end_time || '-' || csch.course_start_time END, ' / ') AS "monday",
-                                       LISTAGG(CASE WHEN csch.days_of_week = 'سه‌شنبه' THEN csch.course_end_time || '-' || csch.course_start_time END, ' / ') AS "tuesday",
-                                       LISTAGG(CASE WHEN csch.days_of_week = 'چهارشنبه' THEN csch.course_end_time || '-' || csch.course_start_time END, ' / ') AS "wednesday",
-                                       LISTAGG(CASE WHEN csch.days_of_week = 'پنج‌شنبه' THEN csch.course_end_time || '-' || csch.course_start_time END, ' / ') AS "thursday",
-                                       MIN(csch.course_exam_date || ' ساعت ' || csch.course_exam_time) AS "examTime"
-                                FROM course_student cs
-                                INNER JOIN course c ON cs.fk_course = c.id
-                                LEFT JOIN course_schedule csch ON csch.fk_course = c.id
-                                WHERE cs.fk_student = '::studentId'
-                                GROUP BY c.id)
-                SELECT *
-                FROM student_enrollment_result_view
+                                                        SELECT
+                                                            MIN(c.course_name) AS courseName,
+                                                            MIN(c.course_units) AS courseUnits,
+                                                            MIN(c.instructor_name) AS instructorName,
+                                                            GROUP_CONCAT(CASE WHEN csch.days_of_week = 'شنبه' THEN CONCAT(csch.course_end_time, '-', csch.course_start_time) END SEPARATOR ' / ') AS saturday,
+                                                            GROUP_CONCAT(CASE WHEN csch.days_of_week = 'یک‌شنبه' THEN CONCAT(csch.course_end_time, '-', csch.course_start_time) END SEPARATOR ' / ') AS sunday,
+                                                            GROUP_CONCAT(CASE WHEN csch.days_of_week = 'دوشنبه' THEN CONCAT(csch.course_end_time, '-', csch.course_start_time) END SEPARATOR ' / ') AS monday,
+                                                            GROUP_CONCAT(CASE WHEN csch.days_of_week = 'سه‌شنبه' THEN CONCAT(csch.course_end_time, '-', csch.course_start_time) END SEPARATOR ' / ') AS tuesday,
+                                                            GROUP_CONCAT(CASE WHEN csch.days_of_week = 'چهارشنبه' THEN CONCAT(csch.course_end_time, '-', csch.course_start_time) END SEPARATOR ' / ') AS wednesday,
+                                                            GROUP_CONCAT(CASE WHEN csch.days_of_week = 'پنج‌شنبه' THEN CONCAT(csch.course_end_time, '-', csch.course_start_time) END SEPARATOR ' / ') AS thursday,
+                                                            MIN(CONCAT(csch.course_exam_date, ' ساعت ', csch.course_exam_time)) AS examTime
+                                                        FROM course_student cs
+                                                        INNER JOIN course c ON cs.fk_course = c.id
+                                                        LEFT JOIN course_schedule csch ON csch.fk_course = c.id
+                                                        WHERE cs.fk_student = '::studentId'
+                                                        GROUP BY c.id
+                                                    )
+                                                    SELECT *
+                                                    FROM student_enrollment_result_view;
+                
                 """;
         queryView = queryView.replace("::studentId", currentStudent.getId().toString());
         return viewQueryDao.getRows(request, queryView);

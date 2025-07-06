@@ -21,7 +21,7 @@ public abstract class BaseEntity {
     @Id
     @JdbcTypeCode(SqlTypes.CHAR)
     @UuidGenerator(style = UuidGenerator.Style.TIME)
-    @Column(length = 36, columnDefinition = "varchar2(36)", nullable = false, updatable = false)
+    @Column(length = 36, columnDefinition = "varchar(36)", nullable = false, updatable = false)
     private UUID id;
 
     @CreationTimestamp

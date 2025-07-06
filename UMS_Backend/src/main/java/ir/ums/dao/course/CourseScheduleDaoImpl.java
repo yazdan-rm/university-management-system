@@ -41,15 +41,15 @@ public class CourseScheduleDaoImpl implements ICourseScheduleDao {
     @Override
     public EnterpriseGetRowsResponse getRowsCourseSchedule(EnterpriseGetRowsRequest request) {
         String viewQuery = """
-                WITH course_schedule_view AS (SELECT id                AS "id",
-                                                     create_date       AS "createDate",
-                                                     update_date       AS "updateDate",
-                                                     version           AS "version",
-                                                     course_end_time   AS "courseEndTime",
-                                                     course_exam_date  AS "courseExamDate",
-                                                     course_exam_time  AS "courseExamTime",
-                                                     course_start_time AS "courseStartTime",
-                                                     days_of_week      AS "daysOfWeek"
+                WITH course_schedule_view AS (SELECT id                AS id,
+                                                     create_date       AS createDate,
+                                                     update_date       AS updateDate,
+                                                     version           AS version,
+                                                     course_end_time   AS courseEndTime,
+                                                     course_exam_date  AS courseExamDate,
+                                                     course_exam_time  AS courseExamTime,
+                                                     course_start_time AS courseStartTime,
+                                                     days_of_week      AS daysOfWeek
                                               FROM course_schedule cs
                                               WHERE cs.fk_course = '::courseId')
                 SELECT *

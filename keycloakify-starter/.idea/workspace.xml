@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="299ddd34-7ba8-4aed-a314-403b05adaeaa" name="Changes" comment="create login page for ums project">
-      <change beforePath="$PROJECT_DIR$/../UMS_Backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Backend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UMS_Frontend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Frontend/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UMS_Frontend/src/app/main/university/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Frontend/src/app/main/university/dashboard/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UMS_Frontend/src/app/store/apiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UMS_Frontend/src/app/store/apiService.js" afterDir="false" />
-    </list>
+    <list default="true" id="299ddd34-7ba8-4aed-a314-403b05adaeaa" name="Changes" comment="create login page for ums project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,7 +133,7 @@
       <workItem from="1751537846049" duration="16000" />
       <workItem from="1751538804206" duration="28000" />
       <workItem from="1751734692063" duration="5058000" />
-      <workItem from="1751740556490" duration="946000" />
+      <workItem from="1751740556490" duration="1542000" />
     </task>
     <task id="LOCAL-00001" summary="create login page for ums project">
       <option name="closed" value="true" />
