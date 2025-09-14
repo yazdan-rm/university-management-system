@@ -12,11 +12,11 @@ University Management System (UMS) is a full-stack web application designed to s
 
 ## Features
 
-- Login / Logout with OAuth2
-- Courses can be created by admin users
-- A list to display specific courses for student users
-- Students can enroll in courses
-- A form to view scheduled courses along with enrolled students
+-✅ Login / Logout with OAuth2
+-✅ Courses can be created by admin users
+-✅ A list to display specific courses for student users
+-✅ Students can enroll in courses
+-✅ A form to view scheduled courses along with enrolled students
 
 
 ## Run Locally
